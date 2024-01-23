@@ -1,7 +1,11 @@
 import { useState } from "react"
 import Message from "./Message"
 
-function NewBudget({ budget, setBudget }) {
+function NewBudget({
+  budget,
+  setBudget,
+  setIsBudgetValid
+}) {
   const [message, setMessage] = useState("")
 
   const handleBudget = e => {
@@ -16,6 +20,8 @@ function NewBudget({ budget, setBudget }) {
       setMessage("El valor debe ser un número")
       return
     }
+
+    setIsBudgetValid(true)
   }
 
   return (
