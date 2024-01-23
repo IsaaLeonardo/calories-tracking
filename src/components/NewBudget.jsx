@@ -19,13 +19,13 @@ function NewBudget({ budget, setBudget }) {
   }
 
   return (
-    <div className="contenedor-presupuesto contenedor sombra">
-      <form onSubmit={handleBudget} className="formulario">
-        <div className="campo">
+    <div className="container-budget container shadow">
+      <form onSubmit={handleBudget} className="form">
+        <div className="input">
           <label htmlFor="presupuesto">Definir Presupuesto</label>
           <input
             type="text"
-            className="nuevo-presupuesto"
+            className="new-budget"
             name="presupuesto"
             value={ budget }
             onChange={ e => setBudget(e.target.value) }

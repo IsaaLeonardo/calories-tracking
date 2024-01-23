@@ -1,6 +1,6 @@
 function Message({ children, type }) {
   return (
-    <div className={`alerta ${type}`}>{ children }</div>
+    <div className={`alert ${type}`}>{ children }</div>
   )
 }
 
