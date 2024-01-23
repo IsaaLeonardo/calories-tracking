@@ -1,3 +1,4 @@
+import Dashboard from "./Dashboard"
 import NewBudget from "./NewBudget"
 
 function Header({
@@ -11,9 +12,9 @@ function Header({
       <h1>Planificador de Calorías</h1>
 
       { isBudgetValid ? (
-        <div className="container-budget container shadow">
-          <p>Meta: ${ budget }</p>
-        </div>
+        <Dashboard
+          budget={ budget }
+        />
       ) : (
         <NewBudget
           budget={ budget }
