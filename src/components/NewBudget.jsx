@@ -8,12 +8,12 @@ function NewBudget({ budget, setBudget }) {
     e.preventDefault()
 
     if (budget < 1) {
-      setMessage("El presupuesto debe ser mayor a 0")
+      setMessage("El valor debe ser mayor a 0")
       return
     }
 
     if (isNaN(budget)) {
-      setMessage("El presupuesto debe ser un número")
+      setMessage("El valor debe ser un número")
       return
     }
   }
@@ -22,11 +22,11 @@ function NewBudget({ budget, setBudget }) {
     <div className="container-budget container shadow">
       <form onSubmit={handleBudget} className="form">
         <div className="input">
-          <label htmlFor="presupuesto">Definir Presupuesto</label>
+          <label htmlFor="goal">Definir Meta</label>
           <input
             type="text"
             className="new-budget"
-            name="presupuesto"
+            id="goal"
             value={ budget }
             onChange={ e => setBudget(e.target.value) }
           />
