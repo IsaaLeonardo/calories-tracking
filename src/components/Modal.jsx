@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Message from './Message'
+import { createId } from '../helpers/index.js'
 import closeIcon from '../img/close.png'
 
 function Modal({ setModal, modalAnimation, setModalAnimation, saveNote }) {
@@ -33,7 +34,8 @@ function Modal({ setModal, modalAnimation, setModalAnimation, saveNote }) {
       return
     }
 
-    saveNote(newNote)
+    hanldeCloseModal()
+    saveNote({id: createId(), ...newNote})
   }
 
   const hanldeCloseModal = () => {
