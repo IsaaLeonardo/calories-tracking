@@ -6,6 +6,12 @@ function App() {
   const [budget, setBudget] = useState(0)
   const [isBudgetValid, setIsBudgetValid] = useState(false)
 
+  const [modal, setModal] = useState(false)
+
+  const handleNewNote = () => {
+    setModal(true)
+  }
+
   return (
     <>
       <Header
@@ -17,8 +23,16 @@ function App() {
 
       {isBudgetValid && (
         <div className="new-note">
-          <img src={ addIcon } alt="Añadir" />
+          <img
+            src={ addIcon }
+            alt="Añadir"
+            onClick={ handleNewNote }
+          />
         </div>
+      )}
+
+      {modal && (
+        <p>modal true</p>
       )}
     </>
   )
