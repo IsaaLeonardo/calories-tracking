@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Header from "./components/Header"
+import Modal from "./components/Modal"
 import addIcon from "./img/add.png"
 
 function App() {
@@ -32,7 +33,9 @@ function App() {
       )}
 
       {modal && (
-        <p>modal true</p>
+        <Modal
+          setModal={ setModal }
+        />
       )}
     </>
   )
