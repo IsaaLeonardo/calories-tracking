@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Message from './Message'
 import closeIcon from '../img/close.png'
 
-function Modal({ setModal, modalAnimation, setModalAnimation }) {
+function Modal({ setModal, modalAnimation, setModalAnimation, saveNote }) {
   const [message, setMessage] = useState('')
   const [newNote, setNewNote] = useState({
     title: '',
@@ -32,6 +32,8 @@ function Modal({ setModal, modalAnimation, setModalAnimation }) {
       closeMessage()
       return
     }
+
+    saveNote(newNote)
   }
 
   const hanldeCloseModal = () => {

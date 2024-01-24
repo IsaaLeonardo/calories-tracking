@@ -10,12 +10,18 @@ function App() {
   const [modal, setModal] = useState(false)
   const [modalAnimation, setModalAnimation] = useState(false)
 
+  const [notes, setNotes] = useState([])
+
   const handleNewNote = () => {
     setModal(true)
 
     setTimeout(() => {
       setModalAnimation(true)
     }, 100)
+  }
+
+  const saveNote = note => {
+    setNotes([...notes, note])
   }
 
   return (
@@ -42,6 +48,7 @@ function App() {
           setModal={ setModal }
           modalAnimation={ modalAnimation }
           setModalAnimation={ setModalAnimation }
+          saveNote={ saveNote }
         />
       )}
     </>
