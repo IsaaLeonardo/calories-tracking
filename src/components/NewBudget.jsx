@@ -30,11 +30,11 @@ function NewBudget({
         <div className="input">
           <label htmlFor="goal">Definir Meta</label>
           <input
-            type="text"
+            type="number"
             className="new-budget"
             id="goal"
             value={ budget }
-            onChange={ e => setBudget(e.target.value) }
+            onChange={ e => setBudget(Number(e.target.value)) }
           />
         </div>
 

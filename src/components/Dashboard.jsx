@@ -7,7 +7,7 @@ function Dashboard({ budget }) {
 
       <div className="content-budget">
         <p>
-          <span>Meta:</span> { formatCal.toLocaleString('en-US') } cal
+          <span>Meta:</span> { budget.toLocaleString("es-VE") } cal
         </p>
       </div>
     </div>
