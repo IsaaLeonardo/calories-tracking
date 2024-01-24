@@ -1,8 +1,12 @@
 import closeIcon from '../img/close.png'
 
-function Modal({ setModal }) {
+function Modal({ setModal, modalAnimation, setModalAnimation }) {
   const hanldeCloseModal = () => {
-    setModal(false)
+    setModalAnimation(false)
+
+    setTimeout(() => {
+      setModal(false)
+    }, 350)
   }
 
   return (
@@ -14,6 +18,10 @@ function Modal({ setModal }) {
           onClick={ hanldeCloseModal }
         />
       </div>
+
+      <form className={`form ${modalAnimation ? 'animate' : 'close'}`}>
+        <legend>Nueva Nota</legend>
+      </form>
     </div>
   )
 }
