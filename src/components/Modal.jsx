@@ -1,12 +1,38 @@
 import { useState } from 'react'
+import Message from './Message'
 import closeIcon from '../img/close.png'
 
 function Modal({ setModal, modalAnimation, setModalAnimation }) {
+  const [message, setMessage] = useState('')
   const [newNote, setNewNote] = useState({
     title: '',
     number: '',
     categorie: ''
   })
+
+  const closeMessage = () => {
+    setTimeout(() => {
+      setMessage('')
+    }, 3000)
+  }
+
+  const handleSubmitNewNote = e => {
+    e.preventDefault()
+
+    if ([newNote.title, newNote.number, newNote.categorie].includes('')) {
+      setMessage('Todos los campos son obligatorios')
+      
+      closeMessage()
+      return
+    }
+
+    if (newNote.number <= 0) {
+      setMessage('La cantidad debe ser mayor a 0')
+
+      closeMessage()
+      return
+    }
+  }
 
   const hanldeCloseModal = () => {
     setModalAnimation(false)
@@ -26,8 +52,12 @@ function Modal({ setModal, modalAnimation, setModalAnimation }) {
         />
       </div>
 
-      <form className={`form ${modalAnimation ? 'animate' : 'close'}`}>
+      <form
+        className={`form ${modalAnimation ? 'animate' : 'close'}`}
+        onSubmit={handleSubmitNewNote}  
+      >
         <legend>Nueva Nota</legend>
+        { message && <Message type="error">{ message }</Message> }
 
         <div className="input">
           <label htmlFor="title">Título</label>
