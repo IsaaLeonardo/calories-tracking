@@ -1,5 +1,5 @@
 function Note({ note }) {
-  const { id, title, description, categorie } = note
+  const { id, date, title, description, categorie } = note
   return (
     <div>
       <div className="note shadow">
@@ -7,6 +7,7 @@ function Note({ note }) {
           <div className="description-note">
             <p className="categoria">{categorie}</p>
             <p className="name-note">{title}</p>
+            <p className="date-note">{date}</p>
           </div>
         </div>
       </div>

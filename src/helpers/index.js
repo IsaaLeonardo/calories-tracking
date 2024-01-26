@@ -4,3 +4,14 @@ export function createId() {
 	
 	return fecha + random
 }
+
+export function formatDate(date) {
+	const d = new Date(date)
+	const options = {
+		year: 'numeric',
+		month: 'long',
+		day: '2-digit'
+	}
+	
+	return d.toLocaleDateString('es-ES', options)
+}
