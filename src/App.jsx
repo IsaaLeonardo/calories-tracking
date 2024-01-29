@@ -32,6 +32,7 @@ function App() {
         setBudget={ setBudget }
         isBudgetValid={ isBudgetValid }
         setIsBudgetValid={ setIsBudgetValid }
+        notes={ notes }
       />
 
       {isBudgetValid && (
