@@ -16,6 +16,16 @@ const categorieIcons = {
   exercise: ExerciseIcon
 }
 
+const categorieDictionary = {
+  breakfast: 'Desayuno',
+  lunch: 'Almuerzo',
+  dinner: 'Cena',
+  snack: 'Snack',
+  water: 'Agua',
+  steps: 'Pasos',
+  exercise: 'Ejercicio'
+}
+
 function Note({ note }) {
   const { id, date, title, number, description, categorie } = note
   return (
@@ -24,7 +34,7 @@ function Note({ note }) {
         <div className="content-note">
           <img src={categorieIcons[categorie]} alt="" />
           <div className="description-note">
-            <p className="categoria">{categorie}</p>
+            <p className="categoria">{categorieDictionary[categorie]}</p>
             <p className="name-note">{title}</p>
             <p className="date-note">{date}</p>
           </div>
