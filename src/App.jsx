@@ -26,7 +26,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className={modal ? "fix" : ""}>
       <Header
         budget={ budget }
         setBudget={ setBudget }
@@ -60,7 +60,7 @@ function App() {
           saveNote={ saveNote }
         />
       )}
-    </>
+    </div>
   )
 }
 
