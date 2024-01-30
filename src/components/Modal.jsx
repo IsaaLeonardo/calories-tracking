@@ -35,7 +35,7 @@ function Modal({
     }, 3000)
   }
 
-  const handleSubmitNewNote = e => {
+  const handleSubmitNote = e => {
     e.preventDefault()
 
     if ([newNote.title, newNote.number, newNote.categorie].includes('')) {
@@ -52,12 +52,13 @@ function Modal({
       return
     }
 
-    handleCloseModal()
     saveNote({
       id: createId(),
       date: formatDate(Date.now()),
       ...newNote
     })
+
+    handleCloseModal()
   }
 
   const handleCloseModal = () => {
@@ -81,7 +82,7 @@ function Modal({
 
       <form
         className={`form ${modalAnimation ? 'animate' : 'close'}`}
-        onSubmit={handleSubmitNewNote}  
+        onSubmit={handleSubmitNote}
       >
         <legend>
           { noteToEdit.id ? 'Editar nota' : 'Nueva nota' }
