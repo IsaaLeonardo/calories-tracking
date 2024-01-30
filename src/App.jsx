@@ -5,7 +5,10 @@ import Modal from "./components/Modal"
 import addIcon from "./img/add.png"
 
 function App() {
-  const [budget, setBudget] = useState(0)
+  const [budget, setBudget] = useState(() => {
+    const savedBudget = localStorage.getItem("budget")
+    return savedBudget ? Number(savedBudget) : 0
+  })
   const [isBudgetValid, setIsBudgetValid] = useState(false)
 
   const [modal, setModal] = useState(false)
@@ -21,6 +24,17 @@ function App() {
     
     handleModalOpen()
   }, [noteToEdit])
+
+  useEffect(() => {
+    localStorage.setItem("budget", budget)
+  }, [budget])
+
+  useEffect(() => {
+    if (budget === 0)
+      return
+
+    setIsBudgetValid(true)
+  }, [])
 
   const handleModalOpen = () => {
     setModal(true)
