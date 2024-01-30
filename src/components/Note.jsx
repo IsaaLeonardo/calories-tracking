@@ -35,12 +35,12 @@ const categorieDictionary = {
   exercise: 'Ejercicio'
 }
 
-function Note({ note }) {
+function Note({ note, setNoteToEdit }) {
   const { id, date, title, number, description, categorie } = note
 
   const leadingActions = () => (
     <LeadingActions>
-      <SwipeAction onClick={() => console.log('Editar')}>
+      <SwipeAction onClick={() => setNoteToEdit(note)}>
         Editar
       </SwipeAction>
     </LeadingActions>

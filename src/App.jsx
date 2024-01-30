@@ -13,6 +13,8 @@ function App() {
 
   const [notes, setNotes] = useState([])
 
+  const [noteToEdit, setNoteToEdit] = useState({})
+
   const handleNewNote = () => {
     setModal(true)
 
@@ -40,6 +42,7 @@ function App() {
           <main>
             <NotesList
               notes={ notes }
+              setNoteToEdit={ setNoteToEdit }
             />
           </main>
 
