@@ -31,7 +31,18 @@ function App() {
   }
 
   const saveNote = note => {
-    setNotes([...notes, note])
+    // Save new note
+    if (Object.keys(noteToEdit).length === 0) {
+      setNotes([...notes, note])
+      return
+    }
+
+    // Update alredy created note
+    const updatedNotes = notes.map( n => (
+      n.id === noteToEdit.id ? note : n
+    ))
+    
+    setNotes(updatedNotes)
   }
 
   return (
