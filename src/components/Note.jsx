@@ -36,7 +36,7 @@ const categorieDictionary = {
 }
 
 function Note({ note, setNoteToEdit }) {
-  const { id, date, title, number, description, categorie } = note
+  const { id, date, title, number, categorie } = note
 
   const leadingActions = () => (
     <LeadingActions>
