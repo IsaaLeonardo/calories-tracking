@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react"
+import { CircularProgressbar  } from "react-circular-progressbar"
+import 'react-circular-progressbar/dist/styles.css'
 
 function Dashboard({ budget, notes }) {
   const [available, setAvailable] = useState(0)
   const [reached, setReached] = useState(0)
 
   useEffect(() => {
-    const totalReached = notes.reduce((accumulator, note) => accumulator + note.number, 0)
+    const totalReached = notes.reduce((accumulator, note) => accumulator + Number(note.number), 0)
     const totalAvailable = budget - totalReached
 
     setAvailable(totalAvailable)
