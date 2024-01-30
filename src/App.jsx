@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Header from "./components/Header"
 import NotesList from "./components/NotesList"
 import Modal from "./components/Modal"
@@ -15,7 +15,14 @@ function App() {
 
   const [noteToEdit, setNoteToEdit] = useState({})
 
-  const handleNewNote = () => {
+  useEffect(() => {
+    if (Object.keys(noteToEdit).length == 0)
+      return
+    
+    handleModalOpen()
+  }, [noteToEdit])
+
+  const handleModalOpen = () => {
     setModal(true)
 
     setTimeout(() => {
@@ -50,7 +57,7 @@ function App() {
             <img
               src={ addIcon }
               alt="Añadir"
-              onClick={ handleNewNote }
+              onClick={ handleModalOpen }
             />
           </div>
         </>
@@ -62,6 +69,7 @@ function App() {
           modalAnimation={ modalAnimation }
           setModalAnimation={ setModalAnimation }
           saveNote={ saveNote }
+          setNoteToEdit={ setNoteToEdit }
         />
       )}
     </div>

@@ -3,7 +3,13 @@ import Message from './Message'
 import { createId, formatDate } from '../helpers/index.js'
 import closeIcon from '../img/close.png'
 
-function Modal({ setModal, modalAnimation, setModalAnimation, saveNote }) {
+function Modal({
+  setModal,
+  modalAnimation,
+  setModalAnimation,
+  saveNote,
+  setNoteToEdit,
+}) {
   const [message, setMessage] = useState('')
   const [newNote, setNewNote] = useState({
     title: '',
@@ -43,6 +49,7 @@ function Modal({ setModal, modalAnimation, setModalAnimation, saveNote }) {
   }
 
   const hanldeCloseModal = () => {
+    setNoteToEdit({})
     setModalAnimation(false)
 
     setTimeout(() => {
