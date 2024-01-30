@@ -52,7 +52,7 @@ function Modal({
       return
     }
 
-    hanldeCloseModal()
+    handleCloseModal()
     saveNote({
       id: createId(),
       date: formatDate(Date.now()),
@@ -60,7 +60,7 @@ function Modal({
     })
   }
 
-  const hanldeCloseModal = () => {
+  const handleCloseModal = () => {
     setNoteToEdit({})
     setModalAnimation(false)
 
@@ -75,7 +75,7 @@ function Modal({
         <img
           src={ closeIcon }
           alt="Cerrar"
-          onClick={ hanldeCloseModal }
+          onClick={ handleCloseModal }
         />
       </div>
 
