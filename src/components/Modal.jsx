@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Message from './Message'
 import { createId, formatDate } from '../helpers/index.js'
 import closeIcon from '../img/close.png'
@@ -8,6 +8,7 @@ function Modal({
   modalAnimation,
   setModalAnimation,
   saveNote,
+  noteToEdit,
   setNoteToEdit,
 }) {
   const [message, setMessage] = useState('')
@@ -16,6 +17,17 @@ function Modal({
     number: '',
     categorie: ''
   })
+
+  useEffect(() => {
+    if (Object.keys(noteToEdit).length === 0)
+      return
+
+    setNewNote({
+      title: noteToEdit.title,
+      number: noteToEdit.number,
+      categorie: noteToEdit.categorie
+    })
+  }, [])
 
   const closeMessage = () => {
     setTimeout(() => {
@@ -71,7 +83,9 @@ function Modal({
         className={`form ${modalAnimation ? 'animate' : 'close'}`}
         onSubmit={handleSubmitNewNote}  
       >
-        <legend>Nueva Nota</legend>
+        <legend>
+          { noteToEdit.id ? 'Editar nota' : 'Nueva nota' }
+        </legend>
         { message && <Message type="error">{ message }</Message> }
 
         <div className="input">

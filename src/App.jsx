@@ -69,6 +69,7 @@ function App() {
           modalAnimation={ modalAnimation }
           setModalAnimation={ setModalAnimation }
           saveNote={ saveNote }
+          noteToEdit={ noteToEdit }
           setNoteToEdit={ setNoteToEdit }
         />
       )}
