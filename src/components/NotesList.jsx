@@ -1,6 +1,6 @@
 import Note from './Note'
 
-function NotesList({ notes, setNoteToEdit }) {
+function NotesList({ notes, setNoteToEdit, deleteNote }) {
   return (
     <div className="notes-list container">
       <h2>{notes.length ? 'Notas' : 'No se han registrado notas'}</h2>
@@ -10,6 +10,7 @@ function NotesList({ notes, setNoteToEdit }) {
           key={ note.id }
           note={ note }
           setNoteToEdit={ setNoteToEdit }
+          deleteNote={ deleteNote }
         />
       ))}
     </div>

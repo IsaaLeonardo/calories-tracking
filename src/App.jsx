@@ -41,7 +41,12 @@ function App() {
     const updatedNotes = notes.map( n => (
       n.id === noteToEdit.id ? note : n
     ))
-    
+
+    setNotes(updatedNotes)
+  }
+
+  const deleteNote = id => {
+    const updatedNotes = notes.filter( n => n.id !== id )
     setNotes(updatedNotes)
   }
 
@@ -61,6 +66,7 @@ function App() {
             <NotesList
               notes={ notes }
               setNoteToEdit={ setNoteToEdit }
+              deleteNote={ deleteNote }
             />
           </main>
 

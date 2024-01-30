@@ -35,7 +35,7 @@ const categorieDictionary = {
   exercise: 'Ejercicio'
 }
 
-function Note({ note, setNoteToEdit }) {
+function Note({ note, setNoteToEdit, deleteNote }) {
   const { id, date, title, number, categorie } = note
 
   const leadingActions = () => (
@@ -48,7 +48,7 @@ function Note({ note, setNoteToEdit }) {
 
   const trailingActions = () => (
     <TrailingActions>
-      <SwipeAction onClick={() => console.log('Eliminar')}>
+      <SwipeAction onClick={() => deleteNote(id)} destructive={ true }>
         Eliminar
       </SwipeAction>
     </TrailingActions>
