@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { CircularProgressbar  } from "react-circular-progressbar"
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar"
 import 'react-circular-progressbar/dist/styles.css'
 
 function Dashboard({ budget, notes }) {
@@ -17,7 +17,15 @@ function Dashboard({ budget, notes }) {
   return (
     <div className="container-budget container shadow two-columns">
       <div>
-        Chart
+        <CircularProgressbar
+          styles={ buildStyles({
+            pathColor: '#3B82F6',
+            trailColor: '#F5F5F5',
+            textColor: '#3B82F6',
+          })}
+          value={ (reached * 100) / budget }
+          text={ `${((reached * 100) / budget).toFixed(2)}% alcanzado` }
+        />
       </div>
 
       <div className="content-budget">
