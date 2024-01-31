@@ -38,6 +38,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes))
+    setFilteredNotes(notes)
   }, [notes])
 
   useEffect(() => {
