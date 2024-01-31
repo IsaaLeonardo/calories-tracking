@@ -7,6 +7,7 @@ function Header({
   isBudgetValid,
   setIsBudgetValid,
   notes,
+  setNotes,
 }) {
   return (
     <header>
@@ -15,7 +16,10 @@ function Header({
       { isBudgetValid ? (
         <Dashboard
           budget={ budget }
+          setBudget={ setBudget }
+          setIsBudgetValid={ setIsBudgetValid }
           notes={ notes }
+          setNotes={ setNotes }
         />
       ) : (
         <NewBudget

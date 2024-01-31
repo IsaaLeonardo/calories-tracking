@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar"
 import 'react-circular-progressbar/dist/styles.css'
 
-function Dashboard({ budget, notes }) {
+function Dashboard({ budget, setBudget, setIsBudgetValid, notes, setNotes }) {
   const [available, setAvailable] = useState(0)
   const [reached, setReached] = useState(0)
 
@@ -13,6 +13,17 @@ function Dashboard({ budget, notes }) {
     setAvailable(totalAvailable)
     setReached(totalReached)
   }, [notes])
+
+  const handleResetApp = () => {
+    const response = confirm('¿Estás seguro de que quieres resetear la app?')
+
+    if (!response)
+      return
+
+    setBudget(0)
+    setIsBudgetValid(false)
+    setNotes([])
+  }
 
   return (
     <div className="container-budget container shadow two-columns">
@@ -29,6 +40,13 @@ function Dashboard({ budget, notes }) {
       </div>
 
       <div className="content-budget">
+        <button
+          className="reset-app"
+          type="button"
+          onClick={ handleResetApp }
+        >
+          Resetear App
+        </button>
         <p>
           <span>Meta:</span> { budget.toLocaleString("es-VE") } cal
         </p>
