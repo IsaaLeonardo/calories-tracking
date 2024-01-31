@@ -100,11 +100,13 @@ function App() {
       {isBudgetValid && (
         <>
           <main>
-            {notes.length && (
+            {notes.length ? (
               <Filters
                 filter={ filter }
                 setFilter={ setFilter }
               />
+            ) : (
+              null
             )}
             <NotesList
               notes={ notes }
