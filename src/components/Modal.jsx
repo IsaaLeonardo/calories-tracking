@@ -114,7 +114,7 @@ function Modal({
         </div>
 
         <div className="input">
-          <label htmlFor="number">Categoría</label>
+          <label htmlFor="categorie">Categoría</label>
 
           <select
             id="categorie"
