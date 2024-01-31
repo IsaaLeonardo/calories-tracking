@@ -14,7 +14,10 @@ function App() {
   const [modal, setModal] = useState(false)
   const [modalAnimation, setModalAnimation] = useState(false)
 
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState(() => {
+    const savedNotes = localStorage.getItem("notes")
+    return savedNotes ? JSON.parse(savedNotes) : []
+  })
 
   const [noteToEdit, setNoteToEdit] = useState({})
 
@@ -28,6 +31,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem("budget", budget)
   }, [budget])
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes))
+  }, [notes])
 
   useEffect(() => {
     if (budget === 0)
