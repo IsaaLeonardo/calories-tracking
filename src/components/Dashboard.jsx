@@ -19,9 +19,9 @@ function Dashboard({ budget, notes }) {
       <div>
         <CircularProgressbar
           styles={ buildStyles({
-            pathColor: '#3B82F6',
+            pathColor: available < 0 ? "#DC2626" : "#3B82F6",
             trailColor: '#F5F5F5',
-            textColor: '#3B82F6',
+            textColor: available < 0 ? "#DC2626" : "#3B82F6",
           })}
           value={ (reached * 100) / budget }
           text={ `${((reached * 100) / budget).toFixed(2)}% alcanzado` }
@@ -33,7 +33,7 @@ function Dashboard({ budget, notes }) {
           <span>Meta:</span> { budget.toLocaleString("es-VE") } cal
         </p>
 
-        <p>
+        <p className={available < 0 ? "negativo" : ""}>
           <span>Disponible:</span> { Number(available).toLocaleString("es-VE") } cal
         </p>
 
