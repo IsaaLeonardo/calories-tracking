@@ -7,7 +7,7 @@ function Filters({ filter, setFilter }) {
             <select
               onChange={ e => setFilter(e.target.value) }
             >
-              <option value="">--Seleccione una opción--</option>
+              <option value="">--Todas las categorías--</option>
               <option value="exercise">💪 Ejercicio</option>
               <option value="steps">👣 Pasos</option>
               <option value="water">🚰 Agua</option>
