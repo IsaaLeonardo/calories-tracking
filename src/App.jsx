@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Header from "./components/Header"
+import Filters from "./components/Filters"
 import NotesList from "./components/NotesList"
 import Modal from "./components/Modal"
 import addIcon from "./img/add.png"
@@ -19,6 +20,9 @@ function App() {
     return savedNotes ? JSON.parse(savedNotes) : []
   })
 
+  const [filter, setFilter] = useState("")
+  const [filteredNotes, setFilteredNotes] = useState(notes)
+
   const [noteToEdit, setNoteToEdit] = useState({})
 
   useEffect(() => {
@@ -35,6 +39,16 @@ function App() {
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes))
   }, [notes])
+
+  useEffect(() => {
+    if (!filter) {
+      setFilteredNotes(notes)
+      return
+    }
+
+    const filterResult = notes.filter( n => n.categorie === filter )
+    setFilteredNotes(filterResult)
+  }, [filter])
 
   useEffect(() => {
     if (budget === 0)
@@ -84,8 +98,15 @@ function App() {
       {isBudgetValid && (
         <>
           <main>
+            {notes.length && (
+              <Filters
+                filter={ filter }
+                setFilter={ setFilter }
+              />
+            )}
             <NotesList
               notes={ notes }
+              filteredNotes={ filteredNotes }
               setNoteToEdit={ setNoteToEdit }
               deleteNote={ deleteNote }
             />

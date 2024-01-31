@@ -1,11 +1,11 @@
 import Note from './Note'
 
-function NotesList({ notes, setNoteToEdit, deleteNote }) {
+function NotesList({ filteredNotes, setNoteToEdit, deleteNote }) {
   return (
     <div className="notes-list container">
-      <h2>{notes.length ? 'Notas' : 'No se han registrado notas'}</h2>
+      <h2>{filteredNotes.length ? 'Notas' : 'No se han registrado notas'}</h2>
 
-      {notes.map( note => (
+      {filteredNotes.map( note => (
         <Note
           key={ note.id }
           note={ note }
